@@ -1,0 +1,39 @@
+//Criando uma árvore binária
+
+
+ArvoreBin* cria_ArvoreBin(){
+
+   ArvoreBin* raiz = (ArvoreBin*) malloc(sizeof(ArvoreBin));
+   if(raiz!=NULL){
+      *raiz = NULL;
+   }
+   return raiz;
+}
+
+
+//chamada na main : ArvoreBin* raiz = cria_ArvoreBin();
+
+
+
+//Destruindo a arvore binaria
+
+
+void libera_NO(struct NO* no){
+      
+     if(no == NULL)
+        return;
+     
+     libera_NO(no->esq);
+     libera_NO(no->dir);
+     free(no);
+     no = NULL;
+}
+
+//Liberando a arvore
+
+void libera_ArvoreBin(ArvoreBin* raiz){
+     if(raiz == NULL)
+        return;
+     libera_NO(*raiz);
+     free(raiz);
+}

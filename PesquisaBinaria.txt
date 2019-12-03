@@ -1,0 +1,31 @@
+//Autor: Lucas de Souza
+
+#define TAM_VETOR 50
+
+typedef struct tDado{
+  
+    int vet[TAM_VETOR];     
+    int chave;
+
+}tDado;
+
+int pesquisaBinaria (int vetor[TAM_VETOR], int chave)
+{
+     int elemInferior = 0;        
+     int elemSuperior = TAM_VETOR; 
+     int meio;
+     while(elemInferior <= elemSuperior)
+     {
+          meio = (elemInferior + elemSuperior)/2;
+          if(chave == vetor[meio])
+               return meio;
+          if (chave < vetor[meio]){
+               elemSuperior = meio-1;
+          }else{
+               elemInferior = meio+1;
+          }      
+     }
+     return -1;   // Não foi encontrado!
+}
+
+
